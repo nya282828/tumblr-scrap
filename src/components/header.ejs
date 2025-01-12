@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+
+  <%# テーマオプション %>
+  <meta name="font:Body" content="Helvetica Neue"/>
+
+  <meta name="image:Title Logo" content=""/>
+
+  <meta name="select:Thumbnails Margin" content="margin-none" title="None">
+  <meta name="select:Thumbnails Margin" content="margin-narrow" title="Narrow">
+  <meta name="select:Thumbnails Margin" content="margin-wide" title="Wide">
+
+  <meta name="select:Thumbnails Size" content="size-xs" title="XS">
+  <meta name="select:Thumbnails Size" content="size-s" title="S">
+  <meta name="select:Thumbnails Size" content="size-m" title="M">
+  <meta name="select:Thumbnails Size" content="size-l" title="L">
+  <meta name="select:Thumbnails Size" content="size-xl" title="XL">
+
+  <meta name="if:Crop Thumbnails" content="1" />
+  <meta name="if:Show Tag List" content="1" />
+  <meta name="if:Show Profile Section" content="1" />
+  <meta name="if:Show Index Entry Footer" content="0" />
+  <meta name="if:Single Column Mode" content="0" />
+
+  <meta name="text:Title Logo Width" content="" />
+  <meta name="text:Your Name" content="" />
+  <meta name="text:Profile" content="" />
+
+  <meta name="text:Your Website URL" content=""/>
+
+
+  <title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="{Favicon}">
+  <link rel="alternate" type="application/rss+xml" href="{RSS}">
+  <link rel="apple-touch-icon" href="{PortraitURL-128}">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="https://static.tumblr.com/xlsgtjb/Rv4rhzkal/style.css" />
+
+  <%# OGP %>
+  <meta property="og:title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  {block:IndexPage}
+    <meta property="og:image" content="{HeaderImage}" />
+    <meta name="twitter:image:src" content="{HeaderImage}" />
+  {/block:IndexPage}
+  {block:PermalinkPage}
+    {block:Posts}
+      {block:Photo}
+        <meta property="og:image" content="{PhotoURL-HighRes}" />
+        <meta name="twitter:image:src" content="{PhotoURL-HighRes}" />
+      {/block:Photo}
+      {block:Photoset}
+        {block:Photos}
+        <meta property="og:image" content="{PhotoURL-HighRes}" />
+        <meta name="twitter:image:src" content="{PhotoURL-HighRes}" />
+        {/block:Photos}
+      {/block:Photoset}
+    {/block:Posts}
+  {/block:PermalinkPage}
+
+  <meta property="og:site_name" content="{Title}" />
+  {block:Description}
+    <meta property="og:description" content="{MetaDescription}">
+  {/block:Description}
+  {block:IndexPage}
+    <link rel="canonical" href="{BlogURL}"/>
+    <meta property="og:url" content="{BlogURL}" />
+  {/block:IndexPage}
+  {block:PermalinkPage}
+    <link rel="canonical" href="{Permalink}"/>
+    <meta property="og:url" content="{Permalink}" />
+  {/block:PermalinkPage}
+
+</head>
+
+<body class="
+{block:IndexPage}page-index{/block:IndexPage}
+{block:TagPage}page-tag{/block:TagPage}
+{block:PermalinkPage}page-permalink page-{PostID}{/block:PermalinkPage}"
+>
+
+  <style>
+  {CustomCSS}
+  body {
+      font-family: {font:Body}, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6 {
+      font-family: {TitleFont}, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: {TitleFontWeight};
+  }
+  a,
+  .post-content-anchor:hover,
+  .nav li a:hover,
+  .pagenation a:hover,
+  .entry-footer a:hover {
+      color: {AccentColor};
+  }
+  .link-url {
+      background-color: {AccentColor};
+  }
+  .pagenation a:hover:before,
+  .pagenation a:hover:after {
+      border-color: {AccentColor};
+  }
+  .tag-list ul li a:hover {
+      border-color: {AccentColor};
+      color: {AccentColor};
+  }
+  .social-accounts li a:hover {
+      border-color: {AccentColor};
+  }
+  .social-accounts li a:hover .social-accounts-icon path {
+      fill: {AccentColor};
+  }
+  </style>

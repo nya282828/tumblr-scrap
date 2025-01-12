@@ -1,0 +1,27 @@
+{block:IfShowTagList}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://static.tumblr.com/xxf6ewk/hScof72wo/tumblrposts.js"></script>
+  <script>
+    $(document).ready(function(){
+      (function() {
+        var posts = new TumblrPosts({
+          domain: location.host,
+          maxNum:300
+        });
+        posts.bind(posts.EVENT_COMPLETE, function(e) {
+          var that = this;
+          $.each(this.getTags(), function(i, tag) {
+            var html = '<li class="level' + (tag.count % 6 + 1) + '">'
+            + '<a href="/tagged/' + tag.name + '">' + tag.name + '</a></li>';
+            $(html).appendTo($("ul#tags"));
+          });
+        });
+        posts.run();
+      })();
+    });
+  </script>
+{/block:IfShowTagList}
+
+<script src="https://static.tumblr.com/xlsgtjb/gF9qvcaqa/scripts.js"></script>
+</body>
+</html>
