@@ -1,0 +1,48 @@
+  <!--ここからロード-->
+  <div class="page-load-status">
+    <div class="infinite-scroll-request">
+        <div class="loader-ellips">
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+        </div>    
+    </div>
+
+    <p class="infinite-scroll-last">全て読み込みました</p>
+    <p class="infinite-scroll-error">ページを読み込めません</p>
+  </div>
+</div>
+<footer class="c-footer">
+  {block:PreviousPage}
+    <a href="{PreviousPage}">&larr; Previous</a>
+  {/block:PreviousPage}{block:NextPage}
+    <a href="{NextPage}">Next &rarr;</a>
+  {/block:NextPage}
+</footer>
+
+<!--Infinity Scroll-->
+<!-- <script>
+  let grid = document.querySelector('.grid');
+  
+  // imagesLoadedスクリプトでlayout各画像が読み込まれた後にトリガー
+  imagesLoaded( grid, function() {
+    grid.classList.remove('are-images-unloaded');
+    msnry.options.itemSelector = '.grid-item';
+    let items = grid.querySelectorAll('.grid-item');
+    msnry.appended( items );
+  });
+  
+  // init Infinite Scroll
+  let infScroll = new InfiniteScroll( grid, {
+    path: '.pager-next', //ロードするページのリンク
+    hideNav: '.pager-next', //ナビゲーション要素を非表示に
+    append: '.grid-item', //ロード時に追加する要素
+    outlayer: msnry,
+    status: '.page-load-status', //ロード文字
+  });
+</script> -->
+
+<script src="https://static.tumblr.com/xlsgtjb/gF9qvcaqa/scripts.js"></script>
+</body>
+</html>

@@ -39,7 +39,14 @@
   <link rel="alternate" type="application/rss+xml" href="{RSS}">
   <link rel="apple-touch-icon" href="{PortraitURL-128}">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="https://static.tumblr.com/xlsgtjb/Rv4rhzkal/style.css" />
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="https://static.tumblr.com/xo6rund/RBIsqp0h9/index.css" /> -->
+
+
+  <!-- static css file -->
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="https://static.tumblr.com/xo6rund/RBIsqp0h9/index.css"> -->
+
+  <!-- 開発用 local cssエントリポイント -->
+  <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css">
 
   <%# OGP %>
   <meta property="og:title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}" />
@@ -78,6 +85,9 @@
     <meta property="og:url" content="{Permalink}" />
   {/block:PermalinkPage}
 
+  <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+
+
 </head>
 
 <body class="
@@ -86,37 +96,12 @@
 {block:PermalinkPage}page-permalink page-{PostID}{/block:PermalinkPage}"
 >
 
-  <style>
-  {CustomCSS}
-  body {
-      font-family: {font:Body}, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  h1,h2,h3,h4,h5,h6 {
-      font-family: {TitleFont}, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: {TitleFontWeight};
-  }
-  a,
-  .post-content-anchor:hover,
-  .nav li a:hover,
-  .pagenation a:hover,
-  .entry-footer a:hover {
-      color: {AccentColor};
-  }
-  .link-url {
-      background-color: {AccentColor};
-  }
-  .pagenation a:hover:before,
-  .pagenation a:hover:after {
-      border-color: {AccentColor};
-  }
-  .tag-list ul li a:hover {
-      border-color: {AccentColor};
-      color: {AccentColor};
-  }
-  .social-accounts li a:hover {
-      border-color: {AccentColor};
-  }
-  .social-accounts li a:hover .social-accounts-icon path {
-      fill: {AccentColor};
-  }
-  </style>
+<div class="wrapper">
+  <header class="c-header">
+    <h1 class="c-logo">{Title}</h1>
+    <a class="t-link" href="https://nya2828.com/">Blog</a>
+    <a class="t-link" href="/archive">Arcive</a>
+    {block:Description}
+      <p class="t-discription" id="description">{Description}</p>
+    {/block:Description}
+  </header>

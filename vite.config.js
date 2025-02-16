@@ -1,55 +1,29 @@
 import { defineConfig } from 'vite';
-import { ViteEjsPlugin } from "vite-plugin-ejs";
-import { globSync } from 'glob';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const jsFiles = Object.fromEntries(
-  globSync('src/**/*.js', { ignore: ['node_modules/**','**/modules/**','**/dist/**']}).map(file => [
-    path.relative(
-      'src',
-      file.slice(0, file.length - path.extname(file).length)
-    ),
-    fileURLToPath(new URL(file, import.meta.url))
-  ])
-);
-
-const scssFiles = Object.fromEntries(
-  globSync('src/assets/styles/pages/**/*.scss', { ignore: ['src/assets/styles/pages/**/_*.scss'] }).map(file => [
-    path.relative(
-      'src',
-      file.slice(0, file.length - path.extname(file).length)
-    ),
-    fileURLToPath(new URL(file, import.meta.url))
-  ])
-);
-
-const htmlFiles = Object.fromEntries(
-  globSync('src/**/*.html', { ignore: ['node_modules/**', '**/dist/**'] }).map(file => [
-    path.relative(
-      'src',
-      file.slice(0, file.length - path.extname(file).length)
-    ),
-    fileURLToPath(new URL(file, import.meta.url))
-  ])
-);
-
-const inputObject = { ...scssFiles, ...jsFiles, ...htmlFiles };
+import {ViteEjsPlugin} from "vite-plugin-ejs";
+import browserslist from 'browserslist';
+import {browserslistToTargets} from 'lightningcss';
 
 export default defineConfig({
   root: './src',
+  css: {
+    transformer: 'lightningcss',
+    lightningcss: {
+      targets: browserslistToTargets(browserslist('>= 0.25%'))
+    }
+  },
   build: {
     outDir: '../dist',
+    cssMinify: 'lightningcss',
     rollupOptions: {
-      input: inputObject,
+      input: './src/index.html', 
       output: {
-        entryFileNames: `assets/[name].js`,
-        chunkFileNames: `assets/[name].js`,
-        assetFileNames: `assets/[name].[ext]`
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]',
       },
    },
   },
   plugins: [
-    ViteEjsPlugin()
+    ViteEjsPlugin(),
   ],
 });
