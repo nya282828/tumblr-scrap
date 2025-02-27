@@ -97,6 +97,16 @@ a {
 
 /* post */
 .post {
+
+  p:empty {
+    margin: 0;
+    padding: 0;
+  }
+
+  :where(p:empty) + * {
+    margin-block-start: 0;
+  }
+
   img {
     width: 100%;
   }
@@ -125,4 +135,9 @@ a {
   a {
     color: var(--c-caption);
   }
+}
+
+
+.post-content .crt-video+div.npf_row, .post-content div.npf_row+.crt-video, .post-content div.npf_row+p, .post-content p+div.npf_row, .post .crt-video+div.npf_row, .post div.npf_row+.crt-video, .post div.npf_row+p, .post p+div.npf_row, body .crt-video+div.npf_row, body div.npf_row+.crt-video, body div.npf_row+p, body p+div.npf_row {
+  margin-block-start: var(--u-unit);
 }

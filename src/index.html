@@ -41,23 +41,19 @@ pageId = "index";
             {block:RebloggedFrom}
               <div class="reblog-list">
                 {block:Reblogs}
-                  <!-- <div class="reblog-header">
-                    {block:IsActive}
-                        <a href="{Permalink}">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                        <span>{Username}</span>
-                    {/block:IsDeactivated}
-                  </div> -->
-                  <div class="reblog-body">{Body}</div>
+                  <div class="reblog-body">
+                    {Body}
+                    これはリブログテキストorNPFコンテンツ
+                  </div>
                   <div class="post_foot">
-                    <!-- 作成ユーザー -->
-                    <p class="post_user">via:
+                    <!-- Root user -->
+                    <p class="post_user">
+                      via: 
                       {block:IsActive}
-                          <a href="{ReblogRootURL}">{ReblogRootName}</a>
+                        <a href="{ReblogRootURL}">{ReblogRootName}</a>
                       {/block:IsActive}
                       {block:IsDeactivated}
-                          <span>{Username}</span>
+                        <span>{Username}</span>
                       {/block:IsDeactivated}
                     </p>
                     <!-- 作成日 -->
@@ -117,32 +113,69 @@ pageId = "index";
 
         <!--Legacy Photo Posts-->
         {block:Photo}
-            <div class="post post-photo">
-                <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                <!--Original Post-->
-                {block:NotReblog}
-                    {Caption}
-                {/block:NotReblog}
-                <!--Post is a reblog-->
-                {block:RebloggedFrom}
-                    <div class="reblog-list">
-                        {block:Reblogs}
-                            <div class="reblog-header">
-                                {block:IsActive}
-                                    <a href="{Permalink}">{Username}</a>
-                                {/block:IsActive}
-                                {block:IsDeactivated}
-                                    <span>{Username}</span>
-                                {/block:IsDeactivated}
-                            </div>
-                            <div class="reblog-body">{Body}</div>
-                        {/block:Reblogs}
-                    </div>
-                {/block:RebloggedFrom}
-
-                <!-- リアクション数 -->
-                <p class="post_reaction">{NoteCountWithLabel}</p>	
+          <div class="post post-photo">
+            <div class="post_photo">
+              <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
             </div>
+            <!-- これはフォトコンテンツ -->
+            <!--Original Post-->
+            {block:NotReblog}
+              <!-- not reblog -->
+              {Caption}
+              <div class="post_foot">
+                <!-- Root user -->
+                <p class="post_user">
+                  via: 
+                  {block:IsActive}
+                    <a href="{ReblogRootURL}">{ReblogRootName}</a>
+                  {/block:IsActive}
+                  {block:IsDeactivated}
+                    <span>{Username}</span>
+                  {/block:IsDeactivated}
+                </p>
+                <!-- 作成日 -->
+                <p class="post_date">
+                  {block:Date}
+                    <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+                  {/block:Date}
+                </p>
+                <!-- リアクション数 -->
+                <p class="post_reaction">{NoteCountWithLabel}</p>
+              </div>
+            {/block:NotReblog}
+            <!--Post is a reblog-->
+            {block:RebloggedFrom}
+              <!-- reblog -->
+              <div class="reblog-list">
+                {block:Reblogs}
+                  <div class="reblog-body">
+                    {Body}
+                    <!-- これはリブログフォトコンテンツ -->
+                  </div>
+                  <div class="post_foot">
+                    <!-- Root user -->
+                    <p class="post_user">
+                      via: 
+                      {block:IsActive}
+                        <a href="{ReblogRootURL}">{ReblogRootName}</a>
+                      {/block:IsActive}
+                      {block:IsDeactivated}
+                        <span>{Username}</span>
+                      {/block:IsDeactivated}
+                    </p>
+                    <!-- 作成日 -->
+                    <p class="post_date">
+                      {block:Date}
+                        <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+                      {/block:Date}
+                    </p>
+                    <!-- リアクション数 -->
+                    <p class="post_reaction">{NoteCountWithLabel}</p>
+                  </div>
+                {/block:Reblogs}
+              </div>
+            {/block:RebloggedFrom}
+          </div>
         {/block:Photo}
 
         <!--Legacy Photoset Posts-->
