@@ -43,11 +43,11 @@ pageId = "index";
                     {Body}
                   </div>
                   <div class="post_foot">
-                    <!-- Root user -->
+                    <!-- リブログユーザー -->
                     <p class="post_user">
-                      via: 
+                      via:
                       {block:IsActive}
-                        <a href="{ReblogRootURL}">{ReblogRootName}</a>
+                        <a href="{Permalink}">{Username}</a>
                       {/block:IsActive}
                       {block:IsDeactivated}
                         <span>{Username}</span>
@@ -117,23 +117,12 @@ pageId = "index";
             <!-- これはフォトコンテンツ -->
             <!--Original Post-->
             {block:NotReblog}
-              <!-- not reblog -->
               {Caption}
               <div class="post_foot">
-                <!-- Root user -->
-                <p class="post_user">
-                  via: 
-                  {block:IsActive}
-                    <a href="{ReblogRootURL}">{ReblogRootName}</a>
-                  {/block:IsActive}
-                  {block:IsDeactivated}
-                    <span>{Username}</span>
-                  {/block:IsDeactivated}
-                </p>
                 <!-- 作成日 -->
                 <p class="post_date">
                   {block:Date}
-                    <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+                    <a href="{Permalink}"><span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span></a>
                   {/block:Date}
                 </p>
                 <!-- リアクション数 -->
@@ -150,11 +139,11 @@ pageId = "index";
                     <!-- これはリブログフォトコンテンツ -->
                   </div>
                   <div class="post_foot">
-                    <!-- Root user -->
+                    <!-- リブログユーザー -->
                     <p class="post_user">
-                      via: 
+                      via:
                       {block:IsActive}
-                        <a href="{ReblogRootURL}">{ReblogRootName}</a>
+                        <a href="{Permalink}">{Username}</a>
                       {/block:IsActive}
                       {block:IsDeactivated}
                         <span>{Username}</span>
@@ -411,10 +400,10 @@ pageId = "index";
 
                 <!-- ユーザー・日付・リアクション -->
                 <div class="post_foot">
-                  <!-- 作成ユーザー -->
+                  <!-- リブログユーザー -->
                   <p class="post_user">via:
                     {block:IsActive}
-                        <a href="{ReblogRootURL}">{ReblogRootName}</a>
+                        <a href="{Permalink}">{Username}</a>
                     {/block:IsActive}
                     {block:IsDeactivated}
                         <span>{Username}</span>
