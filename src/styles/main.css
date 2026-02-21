@@ -66,6 +66,23 @@ body {
 .c-header {
   padding: calc(var(--u-unit)*4);
   grid-column: 1 / 2;
+
+  @media screen and (min-width: 1024px) {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+.c-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--u-unit);
+  padding: 0 calc(var(--u-unit)*4) calc(var(--u-unit)*4);
+
+  @media screen and (min-width: 1024px) {
+    grid-column: 2 / -1;
+  }
 }
 
 .c-logo {
