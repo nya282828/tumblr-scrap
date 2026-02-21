@@ -100,11 +100,14 @@ pageId = "index";
 
         <!--Legacy Photo Posts-->
         {block:Photo}
-          <div class="post post-photo">
+          <div class="post post-photo" data-permalink="{Permalink}">
             <div class="post_photo">
-              <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+              <img
+                src="{PhotoURL-500}"
+                srcset="{PhotoURL-500} 500w, {PhotoURL-1280} 1280w"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                alt="{PhotoAlt}"/>
             </div>
-            <!-- これはフォトコンテンツ -->
             <!--Original Post-->
             {block:NotReblog}
               {Caption}
