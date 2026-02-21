@@ -72,6 +72,29 @@ body {
   margin: 0;
 }
 
+.c-logo-link {
+  display: block;
+  margin-block-end: calc(var(--u-unit) * 2);
+}
+
+.c-logo-img {
+  display: block;
+  max-width: 100%;
+}
+
+.c-name {
+  margin-block: calc(var(--u-unit)) 0;
+  font-size: var(--t-size-m);
+  color: var(--c-caption);
+}
+
+.c-description,
+.c-profile {
+  margin-block: calc(var(--u-unit)) 0;
+  font-size: var(--t-size-s);
+  color: var(--c-caption);
+}
+
 .l-main {
   padding: calc(var(--u-unit) * 4);
   grid-column: 2 / -1;

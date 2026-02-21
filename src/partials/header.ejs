@@ -7,10 +7,13 @@
   <%# テーマオプション %>
   <meta name="font:Body" content="Helvetica Neue"/>
 
+  <meta name="color:Background" content="#1A1A1A"/>
+  <meta name="color:Text" content="#ffffff"/>
+  <meta name="color:Caption" content="#BFBFBF"/>
+
   <meta name="image:Title Logo" content=""/>
 
-  <meta name="text:Title Logo Width" content="" />
-  <meta name="text:Your Name" content="" />
+<meta name="text:Your Name" content="" />
   <meta name="text:Profile" content="" />
 
   <meta name="text:Your Website URL" content=""/>
@@ -27,6 +30,19 @@
 
   <!-- 開発用 local cssエントリポイント -->
   <!-- <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css"> -->
+
+  <%# カスタマイズパネルの値を CSS カスタムプロパティとして出力 %>
+  <%# 外部CSSのデフォルト値をここで上書きする %>
+  <style>
+    :root {
+      --c-bg: {color:Background};
+      --c-text: {color:Text};
+      --c-caption: {color:Caption};
+    }
+    body {
+      font-family: "{font:Body}", sans-serif;
+    }
+  </style>
 
   <%# OGP %>
   <meta property="og:title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}" />
@@ -78,12 +94,23 @@
 
 <div class="wrapper">
   <header class="c-header">
+    {block:IfTitleLogo}
+      <a href="{BlogURL}" class="c-logo-link">
+        <img class="c-logo-img" src="{image:Title Logo}" alt="{Title}"/>
+      </a>
+    {/block:IfTitleLogo}
     <h1 class="c-logo">{Title}</h1>
+    {block:IfYourName}
+      <p class="c-name">{text:Your Name}</p>
+    {/block:IfYourName}
+    {block:Description}
+      <p class="c-description" id="description">{Description}</p>
+    {/block:Description}
+    {block:IfProfile}
+      <p class="c-profile">{text:Profile}</p>
+    {/block:IfProfile}
     {block:IfYourWebsiteURL}
       <a class="t-link" href="{text:Your Website URL}">Blog</a>
     {/block:IfYourWebsiteURL}
     <a class="t-link" href="/archive">Archive</a>
-    {block:Description}
-      <p class="t-discription" id="description">{Description}</p>
-    {/block:Description}
   </header>
