@@ -144,7 +144,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: calc(var(--u-unit) * 2);
-  margin-block: calc(var(--u-unit) * 2);
+  margin-block: 0;
 }
 
 /* .reblog-trail-item {
@@ -172,7 +172,7 @@ a {
 
 
 .post-content .crt-video+div.npf_row, .post-content div.npf_row+.crt-video, .post-content div.npf_row+p, .post-content p+div.npf_row, .post .crt-video+div.npf_row, .post div.npf_row+.crt-video, .post div.npf_row+p, .post p+div.npf_row, body .crt-video+div.npf_row, body div.npf_row+.crt-video, body div.npf_row+p, body p+div.npf_row {
-  margin-block-start: var(--u-unit);
+  margin-block-start: 0;
 }
 
 /* Infinite Scroll ローディング表示 */
