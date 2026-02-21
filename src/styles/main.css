@@ -213,6 +213,18 @@ a {
   p {
     margin-block: var(--u-unit) 0;
   }
+
+  p.npf_quote {
+    margin-block-start: 0;
+    font-size: var(--t-size-l);
+    line-height: 1.75;
+  }
+
+  blockquote div {
+    font-size: var(--t-size-l);
+    line-height: 1.75;
+    font-weight: 800;
+  }
 }
 
 .post-content .crt-video+div.npf_row,
