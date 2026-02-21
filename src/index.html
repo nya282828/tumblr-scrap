@@ -37,31 +37,19 @@ pageId = "index";
 
             <!--Post is a reblog-->
             {block:RebloggedFrom}
-              <div class="reblog-list">
+              <div class="reblog-trail">
                 {block:Reblogs}
-                  <div class="reblog-body">
-                    {Body}
+                  <div class="reblog-trail-item">
+                    <div class="reblog-trail-body">{Body}</div>
                   </div>
-                  <div class="post_foot">
-                    <!-- リブログユーザー -->
-                    <p class="post_user">
-                      via:
-                      {block:IsActive}
-                        <a href="{Permalink}">{Username}</a>
-                      {/block:IsActive}
-                      {block:IsDeactivated}
-                        <span>{Username}</span>
-                      {/block:IsDeactivated}
-                    </p>
-                    <!-- 作成日 -->
-                    <p class="post_date">
-                      {block:Date}
-                        <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
-                      {/block:Date}
-                    </p>
-                    <!-- リアクション数 -->
-                    <p class="post_reaction">{NoteCountWithLabel}</p>
-                  </div>
+                  <p class="reblog-trail-user">
+                    {block:IsActive}
+                      <a href="{Permalink}">{Username}</a>
+                    {/block:IsActive}
+                    {block:IsDeactivated}
+                      <span>{Username}</span>
+                    {/block:IsDeactivated}
+                  </p>
                 {/block:Reblogs}
               </div>
             {/block:RebloggedFrom}
@@ -88,23 +76,25 @@ pageId = "index";
                 {/block:NotReblog}
                 <!--Post is a reblog-->
                 {block:RebloggedFrom}
-                    <div class="reblog-list">
-                        {block:Reblogs}
-                            <div class="reblog-header">
-                                {block:IsActive}
-                                    <a href="{Permalink}">{Username}</a>
-                                {/block:IsActive}
-                                {block:IsDeactivated}
-                                    <span>{Username}</span>
-                                {/block:IsDeactivated}
-                            </div>
-                            <div class="reblog-body">{Body}</div>
-                        {/block:Reblogs}
-                    </div>
+                  <div class="reblog-trail">
+                    {block:Reblogs}
+                      <div class="reblog-trail-item">
+                        <div class="reblog-trail-body">{Body}</div>
+                        <p class="reblog-trail-user">
+                          {block:IsActive}
+                            <a href="{Permalink}">{Username}</a>
+                          {/block:IsActive}
+                          {block:IsDeactivated}
+                            <span>{Username}</span>
+                          {/block:IsDeactivated}
+                        </p>
+                      </div>
+                    {/block:Reblogs}
+                  </div>
                 {/block:RebloggedFrom}
 
                 <!-- リアクション数 -->
-                <p class="post_reaction">{NoteCountWithLabel}</p>	
+                <p class="post_reaction">{NoteCountWithLabel}</p>
             </div>
         {/block:Answer}
 
@@ -131,17 +121,11 @@ pageId = "index";
             {/block:NotReblog}
             <!--Post is a reblog-->
             {block:RebloggedFrom}
-              <!-- reblog -->
-              <div class="reblog-list">
+              <div class="reblog-trail">
                 {block:Reblogs}
-                  <div class="reblog-body">
-                    {Body}
-                    <!-- これはリブログフォトコンテンツ -->
-                  </div>
-                  <div class="post_foot">
-                    <!-- リブログユーザー -->
-                    <p class="post_user">
-                      via:
+                  <div class="reblog-trail-item">
+                    <div class="reblog-trail-body">{Body}</div>
+                    <p class="reblog-trail-user">
                       {block:IsActive}
                         <a href="{Permalink}">{Username}</a>
                       {/block:IsActive}
@@ -149,14 +133,6 @@ pageId = "index";
                         <span>{Username}</span>
                       {/block:IsDeactivated}
                     </p>
-                    <!-- 作成日 -->
-                    <p class="post_date">
-                      {block:Date}
-                        <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
-                      {/block:Date}
-                    </p>
-                    <!-- リアクション数 -->
-                    <p class="post_reaction">{NoteCountWithLabel}</p>
                   </div>
                 {/block:Reblogs}
               </div>
@@ -174,23 +150,25 @@ pageId = "index";
                 {/block:NotReblog}
                 <!--Post is a reblog-->
                 {block:RebloggedFrom}
-                    <div class="reblog-header">
-                        {block:Reblogs}
-                            <div class="reblog-header">
-                                {block:IsActive}
-                                    <a href="{Permalink}">{Username}</a>
-                                {/block:IsActive}
-                                {block:IsDeactivated}
-                                    <span>{Username}</span>
-                                {/block:IsDeactivated}
-                            </div>
-                            <div class="reblog-body">{Body}</div>
-                        {/block:Reblogs}
-                    </div>
+                  <div class="reblog-trail">
+                    {block:Reblogs}
+                      <div class="reblog-trail-item">
+                        <div class="reblog-trail-body">{Body}</div>
+                        <p class="reblog-trail-user">
+                          {block:IsActive}
+                            <a href="{Permalink}">{Username}</a>
+                          {/block:IsActive}
+                          {block:IsDeactivated}
+                            <span>{Username}</span>
+                          {/block:IsDeactivated}
+                        </p>
+                      </div>
+                    {/block:Reblogs}
+                  </div>
                 {/block:RebloggedFrom}
 
                 <!-- リアクション数 -->
-                <p class="post_reaction">{NoteCountWithLabel}</p>	
+                <p class="post_reaction">{NoteCountWithLabel}</p>
             </div>
         {/block:Photoset}
 
@@ -217,23 +195,25 @@ pageId = "index";
                 {/block:NotReblog}
                 <!--Post is a reblog-->
                 {block:RebloggedFrom}
-                    <div class="reblog-list">
-                        {block:Reblogs}
-                        <div class="reblog-header">
-                            {block:IsActive}
-                                <a href="{Permalink}">{Username}</a>
-                            {/block:IsActive}
-                            {block:IsDeactivated}
-                                <span>{Username}</span>
-                            {/block:IsDeactivated}
-                        </div>
-                        <div class="reblog-body">{Body}</div>
-                        {/block:Reblogs}
-                    </div>
+                  <div class="reblog-trail">
+                    {block:Reblogs}
+                      <div class="reblog-trail-item">
+                        <div class="reblog-trail-body">{Body}</div>
+                        <p class="reblog-trail-user">
+                          {block:IsActive}
+                            <a href="{Permalink}">{Username}</a>
+                          {/block:IsActive}
+                          {block:IsDeactivated}  
+                            <span>{Username}</span>
+                          {/block:IsDeactivated}
+                        </p>
+                      </div>
+                    {/block:Reblogs}
+                  </div>
                 {/block:RebloggedFrom}
 
                 <!-- リアクション数 -->
-                <p class="post_reaction">{NoteCountWithLabel}</p>	
+                <p class="post_reaction">{NoteCountWithLabel}</p>
             </div>
         {/block:Link}
 
@@ -269,23 +249,26 @@ pageId = "index";
                 {/block:NotReblog}
                 <!--Post is a reblog-->
                 {block:RebloggedFrom}
-                    <div class="reblog-list">
-                        {block:Reblogs}
-                            <div class="reblog-header">
-                                {block:IsActive}
-                                    <a href="{Permalink}">{Username}</a>
-                                {/block:IsActive}
-                                {block:IsDeactivated}
-                                    <span>{Username}</span>
-                                {/block:IsDeactivated}
-                            </div>
-                            <div class="reblog-body">{Body}</div>
-                        {/block:Reblogs}
-                    </div>
+                  <div class="reblog-trail">
+                    {block:Reblogs}
+                      <div class="reblog-trail-item">
+                        <div class="reblog-trail-body">{Body}</div>
+                        <p class="reblog-trail-user">
+                          {block:IsActive}
+                            <a href="{Permalink}">{Username}</a>
+                          {/block:IsActive}
+                          {block:IsDeactivated}
+                            <span>{Username}</span>
+                          {/block:IsDeactivated}
+                        </p>
+                        <div class="reblog-trail-body">{Body}</div>
+                      </div>
+                    {/block:Reblogs}
+                  </div>
                 {/block:RebloggedFrom}
 
                 <!-- リアクション数 -->
-                <p class="post_reaction">{NoteCountWithLabel}</p>	
+                <p class="post_reaction">{NoteCountWithLabel}</p>
             </div>
         {/block:Video}
 
@@ -299,23 +282,26 @@ pageId = "index";
                 {/block:NotReblog}
                 <!--Post is a reblog-->
                 {block:RebloggedFrom}
-                    <div class="reblog-list">
-                        {block:Reblogs}
-                            <div class="reblog-header">
-                                {block:IsActive}
-                                    <a href="{Permalink}">{Username}</a>
-                                {/block:IsActive}
-                                {block:IsDeactivated}
-                                    <span>{Username}</span>
-                                {/block:IsDeactivated}
-                            </div>
-                            <div class="reblog-body">{Body}</div>
-                        {/block:Reblogs}
-                    </div>
+                  <div class="reblog-trail">
+                    {block:Reblogs}
+                      <div class="reblog-trail-item">
+                        <div class="reblog-trail-body">{Body}</div>
+                        <p class="reblog-trail-user">
+                          {block:IsActive}
+                            <a href="{Permalink}">{Username}</a>
+                          {/block:IsActive}
+                          {block:IsDeactivated}
+                            <span>{Username}</span>
+                          {/block:IsDeactivated}
+                        </p>
+                        <div class="reblog-trail-body">{Body}</div>
+                      </div>
+                    {/block:Reblogs}
+                  </div>
                 {/block:RebloggedFrom}
-                
+
                 <!-- リアクション数 -->
-                <p class="post_reaction">{NoteCountWithLabel}</p>	
+                <p class="post_reaction">{NoteCountWithLabel}</p>
             </div>
         {/block:Audio}
 
@@ -384,41 +370,20 @@ pageId = "index";
 
           <!--Post is a reblog-->
           {block:RebloggedFrom}
-            <div class="reblog-list">
+            <div class="reblog-trail">
               {block:Reblogs}
-
-                <!-- <div class="reblog-header">
-                  {block:IsActive}
-                    <a href="{Permalink}">{Username}</a>
-                  {/block:IsActive}
-                  {block:IsDeactivated}
-                    <span>{Username}</span>
-                  {/block:IsDeactivated}
-                </div> -->
-
-                <div class="reblog-body">{Body}</div>
-
-                <!-- ユーザー・日付・リアクション -->
-                <div class="post_foot">
-                  <!-- リブログユーザー -->
-                  <p class="post_user">via:
+                <div class="reblog-trail-item">
+                  <div class="reblog-trail-body">{Body}</div>
+                  <p class="reblog-trail-user">
                     {block:IsActive}
-                        <a href="{Permalink}">{Username}</a>
+                      <a href="{Permalink}">{Username}</a>
                     {/block:IsActive}
                     {block:IsDeactivated}
-                        <span>{Username}</span>
+                      <span>{Username}</span>
                     {/block:IsDeactivated}
                   </p>
-                  <!-- 作成日 -->
-                  <p class="post_date">
-                    {block:Date}
-                      <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
-                    {/block:Date}
-                  </p>
-                  <!-- リアクション数 -->
-                  <p class="post_reaction">{NoteCountWithLabel}</p>
+                  <div class="reblog-trail-body">{Body}</div>
                 </div>
-                
               {/block:Reblogs}
             </div>
           {/block:RebloggedFrom}
@@ -443,17 +408,19 @@ pageId = "index";
             {Replies}
           {/block:NotReblog}
           {block:RebloggedFrom}
-            <div class="reblog-list">
+            <div class="reblog-trail">
               {block:Reblogs}
-                <div class="reblog-header">
-                  {block:IsActive}
-                    <a href="{Permalink}">{Username}</a>
-                  {/block:IsActive}
-                  {block:IsDeactivated}
-                    <span>{Username}</span>
-                  {/block:IsDeactivated}
+                <div class="reblog-trail-item">
+                  <div class="reblog-trail-body">{Body}</div>
+                  <p class="reblog-trail-user">
+                    {block:IsActive}
+                      <a href="{Permalink}">{Username}</a>
+                    {/block:IsActive}
+                    {block:IsDeactivated}
+                      <span>{Username}</span>
+                    {/block:IsDeactivated}
+                  </p>
                 </div>
-                <div class="reblog-body">{Body}</div>
               {/block:Reblogs}
             </div>
           {/block:RebloggedFrom}
@@ -487,12 +454,11 @@ pageId = "index";
             </div>
           {/block:NotReblog}
           {block:RebloggedFrom}
-            <div class="reblog-list">
+            <div class="reblog-trail">
               {block:Reblogs}
-                <div class="reblog-body">{Body}</div>
-                <div class="post_foot">
-                  <p class="post_user">
-                    via:
+                <div class="reblog-trail-item">
+                  <div class="reblog-trail-body">{Body}</div>
+                  <p class="reblog-trail-user">
                     {block:IsActive}
                       <a href="{Permalink}">{Username}</a>
                     {/block:IsActive}
@@ -500,12 +466,6 @@ pageId = "index";
                       <span>{Username}</span>
                     {/block:IsDeactivated}
                   </p>
-                  <p class="post_date">
-                    {block:Date}
-                      <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
-                    {/block:Date}
-                  </p>
-                  <p class="post_reaction">{NoteCountWithLabel}</p>
                 </div>
               {/block:Reblogs}
             </div>
@@ -522,17 +482,19 @@ pageId = "index";
             {Caption}
           {/block:NotReblog}
           {block:RebloggedFrom}
-            <div class="reblog-list">
+            <div class="reblog-trail">
               {block:Reblogs}
-                <div class="reblog-header">
-                  {block:IsActive}
-                    <a href="{Permalink}">{Username}</a>
-                  {/block:IsActive}
-                  {block:IsDeactivated}
-                    <span>{Username}</span>
-                  {/block:IsDeactivated}
+                <div class="reblog-trail-item">
+                  <div class="reblog-trail-body">{Body}</div>
+                  <p class="reblog-trail-user">
+                    {block:IsActive}
+                      <a href="{Permalink}">{Username}</a>
+                    {/block:IsActive}
+                    {block:IsDeactivated}
+                      <span>{Username}</span>
+                    {/block:IsDeactivated}
+                  </p>
                 </div>
-                <div class="reblog-body">{Body}</div>
               {/block:Reblogs}
             </div>
           {/block:RebloggedFrom}
@@ -575,17 +537,19 @@ pageId = "index";
             {Description}
           {/block:NotReblog}
           {block:RebloggedFrom}
-            <div class="reblog-list">
+            <div class="reblog-trail">
               {block:Reblogs}
-                <div class="reblog-header">
-                  {block:IsActive}
-                    <a href="{Permalink}">{Username}</a>
-                  {/block:IsActive}
-                  {block:IsDeactivated}
-                    <span>{Username}</span>
-                  {/block:IsDeactivated}
+                <div class="reblog-trail-item">
+                  <div class="reblog-trail-body">{Body}</div>
+                  <p class="reblog-trail-user">
+                    {block:IsActive}
+                      <a href="{Permalink}">{Username}</a>
+                    {/block:IsActive}
+                    {block:IsDeactivated}
+                      <span>{Username}</span>
+                    {/block:IsDeactivated}
+                  </p>
                 </div>
-                <div class="reblog-body">{Body}</div>
               {/block:Reblogs}
             </div>
           {/block:RebloggedFrom}
@@ -636,17 +600,19 @@ pageId = "index";
             {Description}
           {/block:NotReblog}
           {block:RebloggedFrom}
-            <div class="reblog-list">
+            <div class="reblog-trail">
               {block:Reblogs}
-                <div class="reblog-header">
-                  {block:IsActive}
-                    <a href="{Permalink}">{Username}</a>
-                  {/block:IsActive}
-                  {block:IsDeactivated}
-                    <span>{Username}</span>
-                  {/block:IsDeactivated}
+                <div class="reblog-trail-item">
+                  <div class="reblog-trail-body">{Body}</div>
+                  <p class="reblog-trail-user">
+                    {block:IsActive}
+                      <a href="{Permalink}">{Username}</a>
+                    {/block:IsActive}
+                    {block:IsDeactivated}
+                      <span>{Username}</span>
+                    {/block:IsDeactivated}
+                  </p>
                 </div>
-                <div class="reblog-body">{Body}</div>
               {/block:Reblogs}
             </div>
           {/block:RebloggedFrom}
@@ -670,17 +636,19 @@ pageId = "index";
             {Description}
           {/block:NotReblog}
           {block:RebloggedFrom}
-            <div class="reblog-list">
+            <div class="reblog-trail">
               {block:Reblogs}
-                <div class="reblog-header">
-                  {block:IsActive}
-                    <a href="{Permalink}">{Username}</a>
-                  {/block:IsActive}
-                  {block:IsDeactivated}
-                    <span>{Username}</span>
-                  {/block:IsDeactivated}
+                <div class="reblog-trail-item">
+                  <div class="reblog-trail-body">{Body}</div>
+                  <p class="reblog-trail-user">
+                    {block:IsActive}
+                      <a href="{Permalink}">{Username}</a>
+                    {/block:IsActive}
+                    {block:IsDeactivated}
+                      <span>{Username}</span>
+                    {/block:IsDeactivated}
+                  </p>
                 </div>
-                <div class="reblog-body">{Body}</div>
               {/block:Reblogs}
             </div>
           {/block:RebloggedFrom}

@@ -79,8 +79,10 @@
 <div class="wrapper">
   <header class="c-header">
     <h1 class="c-logo">{Title}</h1>
-    <a class="t-link" href="https://nya2828.com/">Blog</a>
-    <a class="t-link" href="/archive">Arcive</a>
+    {block:IfYourWebsiteURL}
+      <a class="t-link" href="{text:Your Website URL}">Blog</a>
+    {/block:IfYourWebsiteURL}
+    <a class="t-link" href="/archive">Archive</a>
     {block:Description}
       <p class="t-discription" id="description">{Description}</p>
     {/block:Description}

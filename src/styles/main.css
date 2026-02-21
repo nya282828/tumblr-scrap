@@ -103,9 +103,9 @@ a {
     padding: 0;
   }
 
-  :where(p:empty) + * {
+  /* :where(p:empty) + * {
     margin-block-start: 0;
-  }
+  } */
 
   img {
     width: 100%;
@@ -139,7 +139,30 @@ a {
   margin-block: 0;
 }
 
-.reblog-body {
+/* un-nested reblog trail */
+.reblog-trail {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--u-unit) * 2);
+  margin-block: calc(var(--u-unit) * 2);
+}
+
+/* .reblog-trail-item {
+  padding-inline-start: calc(var(--u-unit) * 2);
+  border-inline-start: 2px solid color-mix(in srgb, var(--c-caption) 30%, transparent);
+} */
+
+.reblog-trail-user {
+  margin-block: 0 calc(var(--u-unit));
+  font-size: var(--t-size-s);
+  color: var(--c-caption);
+
+  a {
+    color: var(--c-caption);
+  }
+}
+
+.reblog-trail-body {
   color: var(--c-caption);
 
   a {
