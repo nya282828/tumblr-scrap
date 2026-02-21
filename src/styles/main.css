@@ -114,6 +114,16 @@ a {
   blockquote {
     margin: 0;
   }
+
+  /* NPF画像投稿の <figure> 余白リセット */
+  figure {
+    margin: 0;
+  }
+}
+
+/* グリッド内のクリッカブルポスト */
+.l-grid .post[data-permalink] {
+  cursor: pointer;
 }
 
 .post_foot {
@@ -140,4 +150,48 @@ a {
 
 .post-content .crt-video+div.npf_row, .post-content div.npf_row+.crt-video, .post-content div.npf_row+p, .post-content p+div.npf_row, .post .crt-video+div.npf_row, .post div.npf_row+.crt-video, .post div.npf_row+p, .post p+div.npf_row, body .crt-video+div.npf_row, body div.npf_row+.crt-video, body div.npf_row+p, body p+div.npf_row {
   margin-block-start: var(--u-unit);
+}
+
+/* Infinite Scroll ローディング表示 */
+.page-load-status {
+  grid-column: 1 / -1;
+  padding: calc(var(--u-unit) * 4);
+  text-align: center;
+  color: var(--c-caption);
+  font-size: var(--t-size-s);
+}
+
+.infinite-scroll-last,
+.infinite-scroll-error {
+  display: none;
+}
+
+.loader-ellips {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.loader-ellips__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-caption);
+  animation: loader-pulse 1.2s ease-in-out infinite;
+}
+
+.loader-ellips__dot:nth-child(1) { animation-delay: 0s; }
+.loader-ellips__dot:nth-child(2) { animation-delay: 0.2s; }
+.loader-ellips__dot:nth-child(3) { animation-delay: 0.4s; }
+.loader-ellips__dot:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes loader-pulse {
+  0%, 80%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

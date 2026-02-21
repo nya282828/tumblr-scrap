@@ -14,22 +14,20 @@ pageId = "index";
 
         <!--NPF & Legacy Text Posts-->
         {block:Text}
-          <div class="post post-text">
+          <div class="post post-text" data-permalink="{Permalink}">
             {block:Title}
               <h3><a href="{Permalink}">{Title}</a></h3>
             {/block:Title}
 
             <!--Original Post-->
             {block:NotReblog}
-              <a href="{Permalink}">{Body}</a>
-      
+              {Body}
+
               <div class="post_foot">
-                <!-- 作成ユーザー -->
-                <p class="post_user">via:<a href="{ReblogRootURL}">{ReblogRootName}</a></p>
                 <!-- 作成日 -->
                 <p class="post_date">
                   {block:Date}
-                    <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+                    <a href="{Permalink}"><span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span></a>
                   {/block:Date}
                 </p>
                 <!-- リアクション数 -->
@@ -43,7 +41,6 @@ pageId = "index";
                 {block:Reblogs}
                   <div class="reblog-body">
                     {Body}
-                    これはリブログテキストorNPFコンテンツ
                   </div>
                   <div class="post_foot">
                     <!-- Root user -->
@@ -290,7 +287,7 @@ pageId = "index";
                                     <a href="{Permalink}">{Username}</a>
                                 {/block:IsActive}
                                 {block:IsDeactivated}
-                                    span>{Username}</span>
+                                    <span>{Username}</span>
                                 {/block:IsDeactivated}
                             </div>
                             <div class="reblog-body">{Body}</div>
@@ -382,11 +379,9 @@ pageId = "index";
 
           <!--Original Post-->
           {block:NotReblog}
-            <a href="{Permalink}">{Body}</a>
-    
+            {Body}
+
             <div class="post_foot">
-              <!-- 作成ユーザー -->
-              <p class="post_user">via:<a href="{ReblogRootURL}">{ReblogRootName}</a></p>
               <!-- 作成日 -->
               <p class="post_date">
                 {block:Date}
