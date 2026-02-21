@@ -431,6 +431,270 @@ pageId = "index";
         </div>
       {/block:Text}
 
+      <!--Answer Posts-->
+      {block:Answer}
+        <div class="post post-answer">
+          <p><strong>{Asker}</strong> asked:</p>
+          {Question}
+          {block:Answerer}
+            {Answer}
+          {/block:Answerer}
+          {block:NotReblog}
+            {Replies}
+          {/block:NotReblog}
+          {block:RebloggedFrom}
+            <div class="reblog-list">
+              {block:Reblogs}
+                <div class="reblog-header">
+                  {block:IsActive}
+                    <a href="{Permalink}">{Username}</a>
+                  {/block:IsActive}
+                  {block:IsDeactivated}
+                    <span>{Username}</span>
+                  {/block:IsDeactivated}
+                </div>
+                <div class="reblog-body">{Body}</div>
+              {/block:Reblogs}
+            </div>
+          {/block:RebloggedFrom}
+          <div class="post_foot">
+            <p class="post_date">
+              {block:Date}
+                <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+              {/block:Date}
+            </p>
+            <p class="post_reaction">{NoteCountWithLabel}</p>
+          </div>
+          {PostNotes}
+        </div>
+      {/block:Answer}
+
+      <!--Photo Posts-->
+      {block:Photo}
+        <div class="post post-photo">
+          <div class="post_photo">
+            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+          </div>
+          {block:NotReblog}
+            {Caption}
+            <div class="post_foot">
+              <p class="post_date">
+                {block:Date}
+                  <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+                {/block:Date}
+              </p>
+              <p class="post_reaction">{NoteCountWithLabel}</p>
+            </div>
+          {/block:NotReblog}
+          {block:RebloggedFrom}
+            <div class="reblog-list">
+              {block:Reblogs}
+                <div class="reblog-body">{Body}</div>
+                <div class="post_foot">
+                  <p class="post_user">
+                    via:
+                    {block:IsActive}
+                      <a href="{Permalink}">{Username}</a>
+                    {/block:IsActive}
+                    {block:IsDeactivated}
+                      <span>{Username}</span>
+                    {/block:IsDeactivated}
+                  </p>
+                  <p class="post_date">
+                    {block:Date}
+                      <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+                    {/block:Date}
+                  </p>
+                  <p class="post_reaction">{NoteCountWithLabel}</p>
+                </div>
+              {/block:Reblogs}
+            </div>
+          {/block:RebloggedFrom}
+          {PostNotes}
+        </div>
+      {/block:Photo}
+
+      <!--Photoset Posts-->
+      {block:Photoset}
+        <div class="post post-photoset">
+          {Photoset}
+          {block:NotReblog}
+            {Caption}
+          {/block:NotReblog}
+          {block:RebloggedFrom}
+            <div class="reblog-list">
+              {block:Reblogs}
+                <div class="reblog-header">
+                  {block:IsActive}
+                    <a href="{Permalink}">{Username}</a>
+                  {/block:IsActive}
+                  {block:IsDeactivated}
+                    <span>{Username}</span>
+                  {/block:IsDeactivated}
+                </div>
+                <div class="reblog-body">{Body}</div>
+              {/block:Reblogs}
+            </div>
+          {/block:RebloggedFrom}
+          <div class="post_foot">
+            <p class="post_date">
+              {block:Date}
+                <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+              {/block:Date}
+            </p>
+            <p class="post_reaction">{NoteCountWithLabel}</p>
+          </div>
+          {PostNotes}
+        </div>
+      {/block:Photoset}
+
+      <!--Quote Posts-->
+      {block:Quote}
+        <div class="post post-quote">
+          <blockquote class="quote-text">"{Quote}"</blockquote>
+          {block:Source}
+            <div class="source">{Source}</div>
+          {/block:Source}
+          <div class="post_foot">
+            <p class="post_date">
+              {block:Date}
+                <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+              {/block:Date}
+            </p>
+            <p class="post_reaction">{NoteCountWithLabel}</p>
+          </div>
+          {PostNotes}
+        </div>
+      {/block:Quote}
+
+      <!--Link Posts-->
+      {block:Link}
+        <div class="post post-link">
+          <a href="{URL}" class="link" {Target}>{Name}</a>
+          {block:NotReblog}
+            {Description}
+          {/block:NotReblog}
+          {block:RebloggedFrom}
+            <div class="reblog-list">
+              {block:Reblogs}
+                <div class="reblog-header">
+                  {block:IsActive}
+                    <a href="{Permalink}">{Username}</a>
+                  {/block:IsActive}
+                  {block:IsDeactivated}
+                    <span>{Username}</span>
+                  {/block:IsDeactivated}
+                </div>
+                <div class="reblog-body">{Body}</div>
+              {/block:Reblogs}
+            </div>
+          {/block:RebloggedFrom}
+          <div class="post_foot">
+            <p class="post_date">
+              {block:Date}
+                <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+              {/block:Date}
+            </p>
+            <p class="post_reaction">{NoteCountWithLabel}</p>
+          </div>
+          {PostNotes}
+        </div>
+      {/block:Link}
+
+      <!--Chat Posts-->
+      {block:Chat}
+        <div class="post post-chat">
+          {block:Title}
+            <h3>{Title}</h3>
+          {/block:Title}
+          <ul class="chat">
+            {block:Lines}
+              <li class="{Alt} user_{UserNumber}">
+                {block:Label}
+                  <span class="label">{Label}</span>
+                {/block:Label}{Line}
+              </li>
+            {/block:Lines}
+          </ul>
+          <div class="post_foot">
+            <p class="post_date">
+              {block:Date}
+                <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+              {/block:Date}
+            </p>
+            <p class="post_reaction">{NoteCountWithLabel}</p>
+          </div>
+          {PostNotes}
+        </div>
+      {/block:Chat}
+
+      <!--Video Posts-->
+      {block:Video}
+        <div class="post post-video">
+          {Video-700}
+          {block:NotReblog}
+            {Description}
+          {/block:NotReblog}
+          {block:RebloggedFrom}
+            <div class="reblog-list">
+              {block:Reblogs}
+                <div class="reblog-header">
+                  {block:IsActive}
+                    <a href="{Permalink}">{Username}</a>
+                  {/block:IsActive}
+                  {block:IsDeactivated}
+                    <span>{Username}</span>
+                  {/block:IsDeactivated}
+                </div>
+                <div class="reblog-body">{Body}</div>
+              {/block:Reblogs}
+            </div>
+          {/block:RebloggedFrom}
+          <div class="post_foot">
+            <p class="post_date">
+              {block:Date}
+                <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+              {/block:Date}
+            </p>
+            <p class="post_reaction">{NoteCountWithLabel}</p>
+          </div>
+          {PostNotes}
+        </div>
+      {/block:Video}
+
+      <!--Audio Posts-->
+      {block:Audio}
+        <div class="post post-audio">
+          {AudioEmbed}
+          {block:NotReblog}
+            {Description}
+          {/block:NotReblog}
+          {block:RebloggedFrom}
+            <div class="reblog-list">
+              {block:Reblogs}
+                <div class="reblog-header">
+                  {block:IsActive}
+                    <a href="{Permalink}">{Username}</a>
+                  {/block:IsActive}
+                  {block:IsDeactivated}
+                    <span>{Username}</span>
+                  {/block:IsDeactivated}
+                </div>
+                <div class="reblog-body">{Body}</div>
+              {/block:Reblogs}
+            </div>
+          {/block:RebloggedFrom}
+          <div class="post_foot">
+            <p class="post_date">
+              {block:Date}
+                <span>{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</span>
+              {/block:Date}
+            </p>
+            <p class="post_reaction">{NoteCountWithLabel}</p>
+          </div>
+          {PostNotes}
+        </div>
+      {/block:Audio}
 
     {/block:Posts}
 
