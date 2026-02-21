@@ -26,8 +26,7 @@
   <link rel="apple-touch-icon" href="{PortraitURL-128}">
 
   <!-- static css file -->
-  <link rel="stylesheet" type="text/css" media="screen" href="https://static.tumblr.com/xo6rund/wEwtato11/index.css"> 
-
+  <link rel="stylesheet" type="text/css" media="screen" href="https://static.tumblr.com/xo6rund/iN7tatp68/index.css"> 
   <!-- 開発用 local cssエントリポイント -->
   <!-- <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css"> -->
 
@@ -100,6 +99,14 @@
       </a>
     {/block:IfTitleLogo}
     <h1 class="c-logo">{Title}</h1>
+    <p class="c-header-link">
+      {block:IfYourWebsiteURL}
+        <a class="t-link" href="{text:Your Website URL}">{text:Your Website URL}</a>
+      {/block:IfYourWebsiteURL}
+    </p>
+    <p class="c-header-link">
+      <a class="t-link" href="/archive">Archive</a>
+    </p>
     {block:IfYourName}
       <p class="c-name">{text:Your Name}</p>
     {/block:IfYourName}
@@ -109,8 +116,4 @@
     {block:IfProfile}
       <p class="c-profile">{text:Profile}</p>
     {/block:IfProfile}
-    {block:IfYourWebsiteURL}
-      <a class="t-link" href="{text:Your Website URL}">Blog</a>
-    {/block:IfYourWebsiteURL}
-    <a class="t-link" href="/archive">Archive</a>
   </header>
